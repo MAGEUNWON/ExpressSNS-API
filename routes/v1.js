@@ -27,11 +27,12 @@ router.post('/token', async(req, res) => {
       nick: domain.User.nick,
     }, process.env.JWT_SECRET,{
       expiresIn: '1m', //1분
-      issure:'nodebird'
+      issuer:'nodebird',
     });
     return res.json({
       code:200,
       message:'토큰이 발급되었습니다',
+      token,
     });
   } catch(error){
     console.error(error);
